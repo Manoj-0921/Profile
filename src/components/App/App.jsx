@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Contact from '../Contact'; // Assuming Contact.jsx is in the same directory or adjust path
 import './App.css';
 
 // --- Reusable Data ---
@@ -9,23 +10,64 @@ const navLinks = [
     { href: "#contact", label: "Contact" },
 ];
 
+// --- SVG Logo Components ---
+const ReactLogo = () => (
+    <svg className="w-16 h-16" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
+        <g stroke="#61DAFB" strokeWidth="1" fill="none">
+            <ellipse rx="11" ry="4.2" />
+            <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+            <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+        </g>
+    </svg>
+);
+
+const MongoDbLogo = () => (
+    <img src="/mongodb.svg" alt="MongoDB Logo" className="w-16 h-16" />
+);
+
+const ExpressLogo = () => (
+    <img src="/express.svg" alt="Express.js Logo" className="w-24 h-14" />
+);
+
+const NodejsLogo = () => (
+    <img src="/nodejs.svg" alt="Node.js Logo" className="w-16 h-16" />
+);
+
+const TypescriptLogo = () => (
+    <img src="/typescript.svg" alt="TypeScript Logo" className="w-16 h-16" />
+);
+
+const JavascriptLogo = () => (
+    <img src="/javascript.svg" alt="JavaScript Logo" className="w-16 h-16" />
+);
+const TailwindLogo = () => (
+    <img src="/tailwind.svg" alt="Tailwind Logo" className="w-16 h-16" />
+);
+const PythonLogo = () => (
+    <img src="/python.svg" alt="Python Logo" className="w-16 h-16" />
+);
+;
+const SqlLogo = () => (
+    <img src="/sql.svg" alt="SQL Logo" className="w-16 h-16" />
+);
+const LinuxLogo = () => (
+    <img src="/linux.svg" alt="Linux Logo" className="w-16 h-16" />
+);
+
+// --- Data Arrays ---
+
 const skillsData = [
-    {
-        title: "MERN Stack Development",
-        description: "Building responsive and dynamic single-page applications with React, Node.js, Express, and MongoDB.",
-    },
-    {
-        title: "Java & SQL",
-        description: "Developing powerful server-side applications and managing relational databases with Java and SQL.",
-    },
-    {
-        title: "Python",
-        description: "Utilizing Python for backend development, scripting, automation, and data manipulation tasks.",
-    },
-    {
-        title: "Linux",
-        description: "Working comfortably in a Linux environment for development, deployment, and server management.",
-    },
+    { name: "React", logo: <ReactLogo /> },
+    { name: "MongoDB", logo: <MongoDbLogo /> },
+    { name: "Express.js", logo: <ExpressLogo /> },
+    { name: "Node.js", logo: <NodejsLogo /> },
+    { name: "JavaScript", logo: <JavascriptLogo /> },
+    { name: "TypeScript", logo: <TypescriptLogo /> },
+    { name: "Tailwind", logo: <TailwindLogo /> },
+    { name: "Python", logo: <PythonLogo /> },
+    { name: "SQL", logo: <SqlLogo /> },
+    { name: "Linux", logo: <LinuxLogo /> },
 ];
 
 const portfolioData = [
@@ -130,13 +172,14 @@ const Skills = () => (
             <SectionSubtitle>
                 I have experience with a variety of modern technologies for front-end and back-end development.
             </SectionSubtitle>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {skillsData.map((skill, index) => (
-                    <div key={index} className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl text-center transition-transform duration-300 hover:-translate-y-2">
-                        <h3 className="text-xl font-semibold mb-3">{skill.title}</h3>
-                        <p className="text-gray-400">{skill.description}</p>
-                    </div>
-                ))}
+            <div className="group relative w-full overflow-hidden mt-12 skill-container">
+                <div className="flex animate-scroll group-hover:animation-pause">
+                    {[...skillsData, ...skillsData].map((skill, index) => (
+                        <div key={index} className="flex-shrink-0 w-48 h-32 mx-4 bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl flex justify-center items-center">
+                            {skill.logo}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     </section>
@@ -156,37 +199,7 @@ const Portfolio = () => (
     </section>
 );
 
-const Contact = () => (
-    <section id="contact" className="py-20 md:py-32 bg-gray-900">
-        <div className="container mx-auto px-6">
-            <div className="text-center">
-                <SectionTitle>Contact <GradientText>Me</GradientText></SectionTitle>
-                <SectionSubtitle>Have a project in mind or want to connect? I'd love to hear from you.</SectionSubtitle>
-            </div>
-            <div className="max-w-xl mx-auto">
-                <form action="#" method="POST" className="space-y-6">
-                    <div>
-                        <label htmlFor="name" className="sr-only">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Your Name" className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="sr-only">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Your Email" className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-                    </div>
-                    <div>
-                        <label htmlFor="message" className="sr-only">Message</label>
-                        <textarea name="message" id="message" rows="4" placeholder="Your Message" className="w-full bg-gray-800 border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                    </div>
-                    <div className="text-center">
-                        <button type="submit" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-);
+
 
 const Footer = () => (
     <footer className="bg-black py-8">
@@ -223,11 +236,9 @@ export default function App() {
                 <Skills />
                 <Portfolio />
                 <Contact />
+               
             </main>
             <Footer />
         </div>
     );
 }
-
-
-

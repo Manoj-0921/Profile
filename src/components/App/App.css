@@ -1,0 +1,19 @@
+.skill-container::before,
+.skill-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10rem;
+    z-index: 2;
+}
+
+.skill-container::before {
+    left: 0;
+    background: linear-gradient(to right, #0a0a0a, transparent);
+}
+
+.skill-container::after {
+    right: 0;
+    background: linear-gradient(to left, #0a0a0a, transparent);
+}
