@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Contact from '../Contact'; // Assuming Contact.jsx is in the same directory or adjust path
+import Portfolio from '../Portfolio';
+import About  from '../About';
 import './App.css';
 
 // --- Reusable Data ---
@@ -127,8 +129,17 @@ const Header = ({ isMenuOpen, setMenuOpen, isScrolled }) => (
 );
 
 const Hero = () => (
-    <section id="home" className="min-h-screen flex items-center bg-cover bg-center" style={{ backgroundImage: "url('https://placehold.co/1920x1080/0a0a0a/4f46e5?text=Manoj+SJ')" }}>
-        <div className="container mx-auto px-6 text-center">
+    <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+        <video 
+            autoPlay 
+            loop 
+            muted 
+            className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+            <source src="/react1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div className="relative z-10 container mx-auto px-6">
             <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-lg inline-block">
                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
                     Hi, I'm <GradientText>Manoj SJ</GradientText>
@@ -144,26 +155,26 @@ const Hero = () => (
     </section>
 );
 
-const About = () => (
-    <section id="about" className="py-20 md:py-32">
-        <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-                <div className="md:w-1/2">
-                    <img src="https://placehold.co/600x400/1f2937/ffffff?text=Developer+Setup" alt="About Me" className="rounded-xl shadow-2xl w-full" />
-                </div>
-                <div className="md:w-1/2">
-                    <SectionTitle>About <GradientText>Me</GradientText></SectionTitle>
-                    <p className="text-gray-400 mb-4 leading-relaxed">
-                        I'm a passionate MERN stack developer focused on building modern, scalable web applications. My primary expertise is in creating dynamic user experiences with React, Node.js, Express, and MongoDB.
-                    </p>
-                    <p className="text-gray-400 leading-relaxed">
-                        I also leverage my skills in Core Java, SQL, Python, and Linux to build robust back-end services and handle a variety of development tasks. I'm dedicated to writing clean, efficient code to create elegant solutions for complex problems.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-);
+// const About = () => (
+//     <section id="about" className="py-20 md:py-32">
+//         <div className="container mx-auto px-6">
+//             <div className="flex flex-col md:flex-row items-center gap-12">
+//                 <div className="md:w-1/2">
+//                     <img src="https://placehold.co/600x400/1f2937/ffffff?text=Developer+Setup" alt="About Me" className="rounded-xl shadow-2xl w-full" />
+//                 </div>
+//                 <div className="md:w-1/2">
+//                     <SectionTitle>About <GradientText>Me</GradientText></SectionTitle>
+//                     <p className="text-gray-400 mb-4 leading-relaxed">
+//                         I'm a passionate MERN stack developer focused on building modern, scalable web applications. My primary expertise is in creating dynamic user experiences with React, Node.js, Express, and MongoDB.
+//                     </p>
+//                     <p className="text-gray-400 leading-relaxed">
+//                         I also leverage my skills in Core Java, SQL, Python, and Linux to build robust back-end services and handle a variety of development tasks. I'm dedicated to writing clean, efficient code to create elegant solutions for complex problems.
+//                     </p>
+//                 </div>
+//             </div>
+//         </div>
+//     </section>
+// );
 
 const Skills = () => (
     <section id="skills" className="py-20 md:py-32 bg-gray-900">
@@ -185,19 +196,19 @@ const Skills = () => (
     </section>
 );
 
-const Portfolio = () => (
-    <section id="portfolio" className="py-20 md:py-32">
-        <div className="container mx-auto px-6 text-center">
-            <SectionTitle>My <GradientText>Portfolio</GradientText></SectionTitle>
-            <SectionSubtitle>A glimpse into some of the projects I am proud of.</SectionSubtitle>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {portfolioData.map((item, index) => (
-                    <img key={index} src={item.src} alt={item.alt} className="rounded-lg shadow-lg w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" />
-                ))}
-            </div>
-        </div>
-    </section>
-);
+// const Portfolio = () => (
+//     <section id="portfolio" className="py-20 md:py-32">
+//         <div className="container mx-auto px-6 text-center">
+//             <SectionTitle>My <GradientText>Portfolio</GradientText></SectionTitle>
+//             <SectionSubtitle>A glimpse into some of the projects I am proud of.</SectionSubtitle>
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+//                 {portfolioData.map((item, index) => (
+//                     <img key={index} src={item.src} alt={item.alt} className="rounded-lg shadow-lg w-full h-full object-cover transition-transform duration-300 transform hover:scale-105" />
+//                 ))}
+//             </div>
+//         </div>
+//     </section>
+// );
 
 
 
