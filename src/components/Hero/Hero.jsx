@@ -96,9 +96,17 @@ const Hero = () => {
         </p>
         <a
           href="#portfolio"
-          className="inline-block px-12 py-3 text-lg font-bold text-gray-900 bg-cyan-400 rounded-full shadow-2xl hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 mb-16 border-4 border-cyan-400 hover:border-cyan-300"
+          className="inline-block px-12 py-3 text-lg font-bold text-gray-900 bg-cyan-400 rounded-full shadow-2xl hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 mb-4 border-4 border-cyan-400 hover:border-cyan-300 mr-4"
         >
           Explore My Work
+        </a>
+        <a
+          href="manojsj_resume.pdf" // <-- Replace with your actual resume link
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block px-12 py-3 text-lg font-bold text-cyan-400 border-4 border-cyan-400 rounded-full shadow-2xl hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105 mb-4"
+        >
+          View Resume
         </a>
         <div className="flex justify-center gap-8 mt-4">
           <a
