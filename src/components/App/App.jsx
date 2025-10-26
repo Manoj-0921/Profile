@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Contact from '../Contact'; // Assuming Contact.jsx is in the same directory or adjust path
 import Portfolio from '../Portfolio';
 import About  from '../About';
+import Hero from "../Hero/Hero"
 import './App.css';
 
 // --- Reusable Data ---
@@ -13,8 +14,8 @@ const navLinks = [
 ];
 
 // --- SVG Logo Components ---
-const ReactLogo = () => (
-    <svg className="w-16 h-16" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
+const ReactLogo = ({ className = "" }) => (
+    <svg className={className} viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
         <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
         <g stroke="#61DAFB" strokeWidth="1" fill="none">
             <ellipse rx="11" ry="4.2" />
@@ -24,37 +25,37 @@ const ReactLogo = () => (
     </svg>
 );
 
-const MongoDbLogo = () => (
-    <img src="/mongodb.svg" alt="MongoDB Logo" className="w-16 h-16" />
+const MongoDbLogo = ({ className = "" }) => (
+    <img src="/mongodb.svg" alt="MongoDB Logo" className={className} />
 );
 
-const ExpressLogo = () => (
-    <img src="/express.svg" alt="Express.js Logo" className="w-24 h-14" />
+const ExpressLogo = ({ className = "" }) => (
+    <img src="/express.svg" alt="Express.js Logo" className={className} />
 );
 
-const NodejsLogo = () => (
-    <img src="/nodejs.svg" alt="Node.js Logo" className="w-16 h-16" />
+const NodejsLogo = ({ className = "" }) => (
+    <img src="/nodejs.svg" alt="Node.js Logo" className={className} />
 );
 
-const TypescriptLogo = () => (
-    <img src="/typescript.svg" alt="TypeScript Logo" className="w-16 h-16" />
+const TypescriptLogo = ({ className = "" }) => (
+    <img src="/typescript.svg" alt="TypeScript Logo" className={className} />
 );
 
-const JavascriptLogo = () => (
-    <img src="/javascript.svg" alt="JavaScript Logo" className="w-16 h-16" />
+const JavascriptLogo = ({ className = "" }) => (
+    <img src="/javascript.svg" alt="JavaScript Logo" className={className} />
 );
-const TailwindLogo = () => (
-    <img src="/tailwind.svg" alt="Tailwind Logo" className="w-16 h-16" />
+const TailwindLogo = ({ className = "" }) => (
+    <img src="/tailwind.svg" alt="Tailwind Logo" className={className} />
 );
-const PythonLogo = () => (
-    <img src="/python.svg" alt="Python Logo" className="w-16 h-16" />
+const PythonLogo = ({ className = "" }) => (
+    <img src="/python.svg" alt="Python Logo" className={className} />
 );
 ;
-const SqlLogo = () => (
-    <img src="/sql.svg" alt="SQL Logo" className="w-16 h-16" />
+const SqlLogo = ({ className = "" }) => (
+    <img src="/sql.svg" alt="SQL Logo" className={className} />
 );
-const LinuxLogo = () => (
-    <img src="/linux.svg" alt="Linux Logo" className="w-16 h-16" />
+const LinuxLogo = ({ className = "" }) => (
+    <img src="/linux.svg" alt="Linux Logo" className={className} />
 );
 
 // --- Data Arrays ---
@@ -128,73 +129,92 @@ const Header = ({ isMenuOpen, setMenuOpen, isScrolled }) => (
     </header>
 );
 
-const Hero = () => (
-    <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
-        <video 
-            autoPlay 
-            loop 
-            muted 
-            className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        >
-            <source src="/react1.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-        <div className="relative z-10 container mx-auto px-6">
-            <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-lg inline-block">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
-                    Hi, I'm <GradientText>Manoj SJ</GradientText>
-                </h1>
-                <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    A MERN Stack Developer with additional skills in Python, Core Java, SQL, and Linux.
-                </p>
-                <a href="#contact" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">
-                    Get in Touch
-                </a>
-            </div>
-        </div>
-    </section>
-);
-
-// const About = () => (
-//     <section id="about" className="py-20 md:py-32">
-//         <div className="container mx-auto px-6">
-//             <div className="flex flex-col md:flex-row items-center gap-12">
-//                 <div className="md:w-1/2">
-//                     <img src="https://placehold.co/600x400/1f2937/ffffff?text=Developer+Setup" alt="About Me" className="rounded-xl shadow-2xl w-full" />
-//                 </div>
-//                 <div className="md:w-1/2">
-//                     <SectionTitle>About <GradientText>Me</GradientText></SectionTitle>
-//                     <p className="text-gray-400 mb-4 leading-relaxed">
-//                         I'm a passionate MERN stack developer focused on building modern, scalable web applications. My primary expertise is in creating dynamic user experiences with React, Node.js, Express, and MongoDB.
-//                     </p>
-//                     <p className="text-gray-400 leading-relaxed">
-//                         I also leverage my skills in Core Java, SQL, Python, and Linux to build robust back-end services and handle a variety of development tasks. I'm dedicated to writing clean, efficient code to create elegant solutions for complex problems.
-//                     </p>
-//                 </div>
+// const Hero = () => (
+//     <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+//         <video 
+//             autoPlay 
+//             loop 
+//             muted 
+//             className="absolute top-0 left-0 w-full h-full object-cover z-0"
+//         >
+//             <source src="/react1.mp4" type="video/mp4" />
+//             Your browser does not support the video tag.
+//         </video>
+//         <div className="relative z-10 container mx-auto px-6">
+//             <div className="bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-lg inline-block">
+//                 <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+//                     Hi, I'm <GradientText>Manoj SJ</GradientText>
+//                 </h1>
+//                 <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+//                     A MERN Stack Developer with additional skills in Python, Core Java, SQL, and Linux.
+//                 </p>
+//                 <a href="#contact" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-transform duration-300 transform hover:scale-105 inline-block">
+//                     Get in Touch
+//                 </a>
 //             </div>
 //         </div>
 //     </section>
 // );
 
-const Skills = () => (
-    <section id="skills" className="py-20 md:py-32 bg-gray-900">
-        <div className="container mx-auto px-6 text-center">
-            <SectionTitle>My Technical <GradientText>Skills</GradientText></SectionTitle>
-            <SectionSubtitle>
-                I have experience with a variety of modern technologies for front-end and back-end development.
-            </SectionSubtitle>
-            <div className="group relative w-full overflow-hidden mt-12 skill-container">
-                <div className="flex animate-scroll group-hover:animation-pause">
-                    {[...skillsData, ...skillsData].map((skill, index) => (
-                        <div key={index} className="flex-shrink-0 w-48 h-32 mx-4 bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl flex justify-center items-center">
-                            {skill.logo}
-                        </div>
-                    ))}
+const Skills = () => {
+    const scrollRef = useRef(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        let reqId;
+        let speed = 0.7; // Adjust for desired speed
+
+        function scrollStep() {
+            if (!scrollContainer) return;
+            // If we've scrolled past the first set, reset to start
+            if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+                scrollContainer.scrollLeft = 0;
+            } else {
+                scrollContainer.scrollLeft += speed;
+            }
+            reqId = requestAnimationFrame(scrollStep);
+        }
+
+        reqId = requestAnimationFrame(scrollStep);
+
+        // Pause on hover
+        const pause = () => cancelAnimationFrame(reqId);
+        const resume = () => { reqId = requestAnimationFrame(scrollStep); };
+
+        scrollContainer.addEventListener('mouseenter', pause);
+        scrollContainer.addEventListener('mouseleave', resume);
+
+        return () => {
+            cancelAnimationFrame(reqId);
+            scrollContainer.removeEventListener('mouseenter', pause);
+            scrollContainer.removeEventListener('mouseleave', resume);
+        };
+    }, []);
+
+    return (
+        <section id="skills" className="py-20 md:py-32 bg-gray-900">
+            <div className="container mx-auto px-6 text-center">
+                <SectionTitle>My Technical <GradientText>Skills</GradientText></SectionTitle>
+                <SectionSubtitle>
+                    I have experience with a variety of modern technologies for front-end and back-end development.
+                </SectionSubtitle>
+                <div
+                    ref={scrollRef}
+                    className="relative w-full overflow-x-hidden mt-12 skill-container whitespace-nowrap"
+                    style={{ cursor: 'grab' }}
+                >
+                    <div className="inline-flex">
+                        {[...skillsData, ...skillsData].map((skill, index) => (
+                            <div key={index} className="flex-shrink-0 w-24 h-24 md:w-48 md:h-32 mx-2 md:mx-4 bg-white/5 backdrop-blur-md border border-white/10 p-4 md:p-8 rounded-xl flex justify-center items-center">
+                                {React.cloneElement(skill.logo, { className: "w-12 h-12 md:w-16 md:h-16" })}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // const Portfolio = () => (
 //     <section id="portfolio" className="py-20 md:py-32">

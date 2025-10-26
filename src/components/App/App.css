@@ -1,3 +1,16 @@
+/* @keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll-x 30s linear infinite;
+}
+
+.group:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
 .skill-container::before,
 .skill-container::after {
     content: '';
@@ -17,3 +30,10 @@
     right: 0;
     background: linear-gradient(to left, #0a0a0a, transparent);
 }
+
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: 30s;
+  }
+} */
+

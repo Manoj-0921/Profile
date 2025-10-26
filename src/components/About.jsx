@@ -14,7 +14,7 @@ return(
      <section id="about" className="py-20 md:py-32">
         <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-center gap-12">
-   <div className="w-[25rem] h-[25rem] rounded-full overflow-hidden shadow-2xl border-4 border-gray-700 mx-auto">
+   <div className="w-60 h-60 md:w-[25rem] md:h-[25rem] rounded-full overflow-hidden shadow-2xl border-4 border-gray-700 mx-auto flex-shrink-0">
   <img
     src="manu.jpeg"
     alt="About Me"

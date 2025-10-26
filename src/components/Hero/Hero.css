@@ -1,0 +1,36 @@
+.hero-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background-color: #1a1a1a;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-social-links a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .hero-social-links a:hover {
+    color: #00bcd4;
+  }
+  
