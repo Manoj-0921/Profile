@@ -1,18 +1,18 @@
 
 const portfolioData = [
     {
-        title: "Real-time Notification System",
-        description: "A mobile and PWA app for instant notifications, built with React Native and extended to a PWA for cross-platform functionality.",
-        technologies: ["React Native", "React (PWA)", "Node.js", "MongoDB", "FCM"],
+        title: "SevaSetu",
+        description: "HealthBlock AppointAI is an AI-driven healthcare system for intelligent appointment scheduling and patient management.",
+        technologies: ["React", "AI/ML", "MongoDB", "Express", "Node.js", "Chatbot"],
         liveUrl: "#",
-        sourceUrl: "#"
+        sourceUrl: "https://github.com/Manoj-0921/SevaSetu"
     },
     {
-        title: "Person Re-Identification Dashboard",
-        description: "A dashboard for tracking and analyzing person re-identification data with advanced search and visualization.",
-        technologies: ["React", "Node.js", "MongoDB", "Docker"],
+        title: "Student Admission Management System",
+        description: "A comprehensive Student Admission Management System built with the MERN stack (MongoDB, Express, React, Node.js) and Redux Toolkit. This application streamlines the admission lifecycle from institutional setup to final student enrollment.",
+        technologies: ["React", "Node.js", "MongoDB", "Express", "Redux Toolkit"],
         liveUrl: "#",
-        sourceUrl: "#"
+        sourceUrl: "https://github.com/Manoj-0921/crm"
     },
     {
         title: "Live Stream Configuration Tool",
